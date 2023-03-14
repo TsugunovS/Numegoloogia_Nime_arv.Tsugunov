@@ -4,22 +4,16 @@
             "с":1, "т":2, "у":3, "ф":4, "х":5, "ц":6, "ч":7, "ш":8, "щ":9,
             "ъ":1, "ы":2, "ь":3, "э":4, "ю":5, "я":6}
     
-    filename = "nimi.txt"
+    name = input("Sisestage teie nimi: ").lower()
     name_value = []
-    
-    with open(filename, "r") as fa:
-        for name in fa:
-            name = name.strip().lower()
-            print(f"Nimi: {name}")
-            for letter in name:
-                if letter in nime:
-                    value = nime[letter]
-                    name_value.append(value)
-                    print(f"{letter},{value}")
-    
-            name_sum = sum(name_value)
-            while name_sum > 9:
-                name_sum = sum(int(digit) for digit in str(name_sum))
-                
-            print(f"Числовое значение вашего имени равно {name_sum}\n")
-            name_value = []
+   
+    for index, letter in enumerate(name):
+        if letter in nime:
+            value = nime[letter]
+            name_value.append(value)
+            print(f"{letter},{value}")
+   
+    name_sum = sum(name_value)
+   
+    print(f"Numbrid vastavate tähtedega {name_value}") #Цифры с соответствующими буквами
+    print(f"Lisa kõik numbrid kokku ja sa saad arvu {name_sum}") #Складываем все числа, и получаем число {name_sum}
